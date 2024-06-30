@@ -1,4 +1,6 @@
 import LmePage from "src/pages/LmePage.vue";
+import QuienesSomosPage from "src/pages/QuienesSomosPage.vue";
+import ContactoPage from "src/pages/ContactoPage.vue";
 import IndexPageVue from "src/pages/IndexPage.vue";
 const routes = [
   {
@@ -7,6 +9,8 @@ const routes = [
     children: [
       { path: "/", component: IndexPageVue },
       { path: "/lme", component: LmePage },
+      { path: "/quienes-somos", component: QuienesSomosPage },
+      { path: "/contacto", component: ContactoPage },
     ],
   },
 

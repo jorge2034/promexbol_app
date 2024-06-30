@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh LpR fFf" class="bg-grey-3">
-    <q-header class="bg-grey-3 text-grey-9" reveal height-hint="60">
-      <q-toolbar class="GPLAY__toolbar text-grey-6">
+    <q-header class="header text-grey-9" reveal height-hint="60">
+      <q-toolbar class="GPLAY__toolbar text-white">
         <q-btn
           v-if="$q.platform.is.mobile || !leftDrawerOpen"
           flat
@@ -12,15 +12,15 @@
           icon="menu"
           class="q-mr-sm"
         />
-
+        <q-space />
         <div class="q-pr-lg">
           <img class="GPLAY__logo" src="logo2.png" />
         </div>
 
         <q-space />
 
-        <div class="q-pl-md q-gutter-sm row no-wrap items-center">
-          <q-btn round dense flat color="grey-8" size="16px" icon="share">
+        <div class="q-pl-md q-gutter-sm row no-wrap items-center text-white">
+          <q-btn round dense flat color="white" size="16px" icon="share">
             <q-tooltip>Compartir</q-tooltip>
           </q-btn>
         </div>
@@ -37,57 +37,76 @@
       <q-list>
         <q-item clickable class="GPLAY__drawer-link bg-grey-10 text-grey-3">
           <q-item-section avatar class="text-grey-1">
-            <q-icon name="weekend" />
+            <q-icon name="apps" />
           </q-item-section>
           <q-item-section class="text-grey-3">
             <q-item-label>Menú</q-item-label>
           </q-item-section>
         </q-item>
 
-        <q-item clickable class="GPLAY__drawer-link GPLAY__drawer-link--apps">
-          <q-item-section avatar class="bg-green-7 text-grey-1 text-center">
-            <q-icon name="android" />
+        <q-item
+          clickable
+          class="GPLAY__drawer-link GPLAY__drawer-link--apps"
+          v-ripple
+          exact
+          to="/"
+        >
+          <q-item-section avatar class="bg-red-7 text-grey-1 text-center">
+            <q-icon name="home" />
           </q-item-section>
           <q-item-section class="apps-text">
             <q-item-label>Inicio</q-item-label>
           </q-item-section>
         </q-item>
 
-        <q-item clickable class="GPLAY__drawer-link GPLAY__drawer-link--movies">
+        <q-item
+          clickable
+          class="GPLAY__drawer-link GPLAY__drawer-link--movies"
+          v-ripple
+          exact
+          to="/quienes-somos"
+        >
           <q-item-section
             avatar
-            class="movies-icon bg-red-7 text-grey-1 text-center"
+            class="movies-icon bg-yellow-7 text-grey-1 text-center"
           >
-            <q-icon name="local_movies" />
+            <q-icon name="groups" />
           </q-item-section>
           <q-item-section class="movies-text">
             <q-item-label>Quiesnes Somos</q-item-label>
           </q-item-section>
         </q-item>
 
-        <q-item clickable class="GPLAY__drawer-link GPLAY__drawer-link--music">
+        <q-item
+          clickable
+          class="GPLAY__drawer-link GPLAY__drawer-link--music"
+          v-ripple
+          exact
+          to="/lme"
+        >
           <q-item-section
             avatar
-            class="music-icon bg-orange-7 text-grey-1 text-center"
+            class="music-icon bg-green-7 text-grey-1 text-center"
           >
-            <q-avatar
-              size="22px"
-              color="white"
-              text-color="orange-7"
-              icon="music_note"
-            />
+            <q-icon name="currency_exchange" />
           </q-item-section>
           <q-item-section class="music-text">
             <q-item-label>LME</q-item-label>
           </q-item-section>
         </q-item>
 
-        <q-item clickable class="GPLAY__drawer-link GPLAY__drawer-link--books">
+        <q-item
+          clickable
+          class="GPLAY__drawer-link GPLAY__drawer-link--books"
+          v-ripple
+          exact
+          to="/contacto"
+        >
           <q-item-section
             avatar
             class="books-icon bg-blue-7 text-grey-1 text-center"
           >
-            <q-icon name="book" />
+            <q-icon name="info_outline" />
           </q-item-section>
           <q-item-section class="books-text">
             <q-item-label>Contactos</q-item-label>
@@ -122,15 +141,31 @@
       </q-page-sticky> -->
     </q-page-container>
     <q-footer>
+      <div class="custom-shape-divider-bottom-1719450834">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
       <div id="mobile-bottom-menu">
-        <a to="/"><span class="material-icons"> home </span><br />Inicio</a>
-        <a to="/lme"
-          ><span class="material-icons"> area_chart </span><br />LME</a
+        <router-link to="/"
+          ><span class="material-icons"> home </span><br />Inicio</router-link
         >
-        <a href="#"
-          ><span class="material-icons"> info_outline </span><br />Contacto</a
+        <router-link to="/lme"
+          ><span class="material-icons"> currency_exchange </span
+          ><br />LME</router-link
         >
-        <!-- Agrega más imágenes según sea necesario -->
+        <router-link to="/contacto"
+          ><span class="material-icons"> info_outline </span
+          ><br />Contacto</router-link
+        >
       </div>
     </q-footer>
   </q-layout>
@@ -159,6 +194,9 @@ export default {
 };
 </script>
 <style>
+.header {
+  background-color: #931830;
+}
 #mobile-bottom-menu a span.material-icons {
   font-size: 24px;
 }
@@ -171,13 +209,9 @@ export default {
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); */
   z-index: 1000;
-  background-color: rgb(
-    187,
-    30,
-    30
-  ); /* Puedes ajustar el color de fondo si lo deseas */
+  background-color: #931830; /* Puedes ajustar el color de fondo si lo deseas */
 }
 
 #mobile-bottom-menu a {
@@ -203,6 +237,33 @@ export default {
     display: none;
   }
 }
+.custom-shape-divider-bottom-1719450834 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1719450834 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-bottom-1719450834 .shape-fill {
+  fill: #931830;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1719450834 svg {
+    width: calc(157% + 1.3px);
+    height: 150px;
+  }
+}
 </style>
 
 <style lang="sass">
@@ -214,6 +275,7 @@ export default {
   &__logo
     width: 150px
     height: 50px
+    filter: drop-shadow(0 0px 9px rgba(255, 255, 255, 0.9))
 
   &__toolbar-input-container
     min-width: 100px
@@ -241,19 +303,19 @@ export default {
       &:hover
         color: #eee !important
 
-    &--apps:hover
-      background: #43a047!important
-
-    &--movies:hover
+    &--apps:active
       background: #e53935!important
 
-    &--music:hover
-      background: #fb8c00!important
+    &--movies:active
+      background: #FDD835!important
 
-    &--books:hover
-      background: #1e88e5!important
+    &--music:active
+      background: #43A047!important
 
-    &--devices:hover
+    &--books:active
+      background: #1E88E5!important
+
+    &--devices:click
       background: #546e7a!important
 
   &__drawer-item
