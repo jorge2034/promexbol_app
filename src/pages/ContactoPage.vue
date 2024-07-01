@@ -5,20 +5,15 @@
       <div class="q-pa-md row items-start q-gutter-md"></div>
       <q-card class="my-card" flat bordered>
         <div class="q-pa-md" v-if="loading">
-          <q-card style="max-width: 300px">
+          <q-card style="width: 100%">
             <q-skeleton height="200px" square />
-
-            <q-card-actions align="right" class="q-gutter-md">
-              <q-skeleton type="QBtn" />
-              <q-skeleton type="QBtn" />
-            </q-card-actions>
           </q-card>
         </div>
         <iframe
           v-show="!loading"
           :src="iframeSrc"
           width="100%"
-          height="450"
+          height="300"
           @load="onIframeLoad"
           frameborder="0"
           allowtransparency="true"
@@ -29,35 +24,34 @@
         </iframe>
 
         <q-card-section>
-          <div class="text-overline text-orange-9">PROMEXBOL</div>
-          <div class="text-h5 q-mt-sm q-mb-xs">
-            Promotora de minerales exportables Bolivia
-          </div>
-          <div class="text-caption text-grey">Información</div>
+          <div class="text-overline text-orange-9">Contáctanos</div>
         </q-card-section>
 
         <div class="column items-center">
           <q-card-actions>
             <q-btn
               flat
+              style="width: 100%"
               color="green-6"
               label="Whatsapp"
               icon="phone"
-              @click="redirectToWhatsApp"
+              @click="redirectToWhatsApp()"
             /><br />
             <q-btn
               flat
+              style="width: 100%"
               color="blue-10"
               label="Facebook"
               icon="facebook"
-              @click="redirectToFacebook"
+              @click="redirectToFacebook()"
             />
             <q-btn
               flat
+              style="width: 100%"
               color="blue-10"
-              label="Web"
+              label="Página Web"
               icon="language"
-              @click="redirectToWeb"
+              @click="redirectToWeb()"
             />
             <q-space />
           </q-card-actions>
@@ -83,10 +77,31 @@ export default defineComponent({
       loading.value = false; // Marcar como cargado cuando el iframe termine de cargar
     };
 
+    const redirectToWhatsApp = () => {
+      const phoneNumber = "59176155280"; // Reemplaza con el número de teléfono deseado
+      const message = "Hola!!, Promexbol. "; // Mensaje opcional
+
+      const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+        message
+      )}`;
+      window.open(url, "_blank");
+    };
+    const redirectToFacebook = () => {
+      const url = `https://www.facebook.com/PromexBol`;
+      window.open(url, "_blank");
+    };
+    const redirectToWeb = () => {
+      const url = `https://www.promexbol.com.bo/`;
+      window.open(url, "_blank");
+    };
+
     return {
       loading,
       iframeSrc,
       onIframeLoad,
+      redirectToWhatsApp,
+      redirectToFacebook,
+      redirectToWeb,
     };
   },
 });
@@ -95,6 +110,7 @@ export default defineComponent({
 <style>
 .page {
   background-color: white;
+  margin-bottom: 35%;
 }
 span {
   text-align: center;

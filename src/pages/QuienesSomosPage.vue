@@ -1,31 +1,33 @@
 <template>
   <q-page class="page">
     <span id="titulo">Quiénes somos</span>
-    <q-card class="my-card" flat bordered>
-      <img src="https://cdn.quasar.dev/img/parallax2.jpg" />
+    <q-card class="my-card" flat>
+      <q-video
+        src="spot_promexbol.mp4"
+        :ratio="16 / 9"
+        class="mb-5"
+        style="height: 150px"
+        title="PROMEXBOL"
+      />
+      <q-card class="my-card">
+        <q-card-section>
+          <strong>Promotora de minerales exportables de Bolivia</strong> es una
+          empresa independiente dedicada a la producción de concentrados de todo
+          tipo de minerales y sus derivados con una extensa trayectoria en la
+          comercialización de materias primas a nivel mundial. Nos
+          especializamos en obtener productos de calidad, trabajando con
+          nuestros clientes en la obtención de materias primas, brindándoles
+          soluciones logísticas y distribución de productos finales.
+        </q-card-section>
+      </q-card>
 
       <q-list>
         <q-expansion-item
           popup
-          default-opened
-          icon="mail"
-          label="Inbox"
-          caption="5 unread emails"
+          icon="visibility"
+          label="Visión"
+          header-class="text-blue"
         >
-          <q-separator />
-          <q-card>
-            <q-card-section>
-              Promotora de minerales exportables de Bolivia es una empresa
-              independiente dedicada a la producción de concentrados de todo
-              tipo de minerales y sus derivados con una extensa trayectoria en
-              la comercialización de materias primas a nivel mundial. Nos
-              especializamos en obtener productos de calidad, trabajando con
-              nuestros clientes en la obtención de materias primas, brindándoles
-              soluciones logísticas y distribución de productos finales.
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-        <q-expansion-item popup icon="send" label="Visión" caption="Empty">
           <q-separator />
           <q-card>
             <q-card-section>
@@ -38,9 +40,9 @@
         </q-expansion-item>
         <q-expansion-item
           popup
-          icon="drafts"
+          icon="verified"
           label="Misión"
-          caption="Draft a new email"
+          header-class="text-green"
         >
           <q-separator />
           <q-card>
@@ -56,153 +58,36 @@
         </q-expansion-item>
       </q-list>
     </q-card>
-    <p></p>
-
-    <p></p>
-
-    <p></p>
-
-    <q-timeline :layout="layout" color="secondary">
-      <q-timeline-entry heading>
-        Timeline heading
-        <br />
-        ({{
-          $q.screen.lt.sm ? "Dense" : $q.screen.lt.md ? "Comfortable" : "Loose"
-        }}
-        layout)
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="left"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 21, 1986"
-        side="right"
-        icon="delete"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry heading>November, 2017</q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="left"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="right"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="left"
-        color="orange"
-        icon="done_all"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="right"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-
-      <q-timeline-entry
-        title="Event Title"
-        subtitle="February 22, 1986"
-        side="left"
-      >
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </q-timeline-entry>
-    </q-timeline>
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "QuienesSomosPage",
+  setup() {
+    const loading = ref(true); // Estado de carga
+    const iframeSrc = ref("spot_promexbol.mp4"); // URL del iframe
+
+    const onIframeLoad = () => {
+      console.log("loading false");
+      loading.value = false; // Marcar como cargado cuando el iframe termine de cargar
+    };
+
+    return {
+      loading,
+      iframeSrc,
+      onIframeLoad,
+    };
+  },
 });
 </script>
 
 <style>
 .page {
   background-color: white;
+  margin-bottom: 35%;
 }
 span {
   text-align: center;
