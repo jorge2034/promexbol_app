@@ -20,7 +20,15 @@
         <q-space />
 
         <div class="q-pl-md q-gutter-sm row no-wrap items-center text-white">
-          <q-btn round dense flat color="white" size="16px" icon="share">
+          <q-btn
+            round
+            dense
+            flat
+            color="white"
+            size="16px"
+            icon="share"
+            @click="share"
+          >
             <q-tooltip>Compartir</q-tooltip>
           </q-btn>
         </div>
@@ -156,15 +164,15 @@
       </div>
       <div id="mobile-bottom-menu">
         <router-link to="/"
-          ><span class="material-icons"> home </span><br />Inicio</router-link
+          ><span class="material-icons"> home </span>Inicio</router-link
         >
         <router-link to="/lme"
           ><span class="material-icons"> currency_exchange </span
-          ><br />LME</router-link
+          >LME</router-link
         >
         <router-link to="/contacto"
           ><span class="material-icons"> info_outline </span
-          ><br />Contacto</router-link
+          >Contacto</router-link
         >
       </div>
     </q-footer>
@@ -173,7 +181,7 @@
 
 <script>
 import { ref } from "vue";
-
+import { Share } from "@capacitor/share";
 export default {
   name: "GooglePlayLayout",
 
@@ -185,10 +193,17 @@ export default {
       leftDrawerOpen.value = !leftDrawerOpen.value;
     }
 
+    async function share() {
+      await Share.share({
+        url: "https://play.google.com/store/apps/details?id=com.hostingbol.promexbol",
+      });
+    }
+
     return {
       leftDrawerOpen,
       storage,
       toggleLeftDrawer,
+      share,
     };
   },
 };
@@ -211,7 +226,7 @@ export default {
   padding: 10px;
   /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); */
   z-index: 1000;
-  background-color: #931830; /* Puedes ajustar el color de fondo si lo deseas */
+  background-color: #93183100; /* Puedes ajustar el color de fondo si lo deseas */
 }
 
 #mobile-bottom-menu a {

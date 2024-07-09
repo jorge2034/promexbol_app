@@ -23,11 +23,8 @@
         >
         </iframe>
 
-        <q-card-section>
-          <div class="text-overline text-orange-9">Contáctanos</div>
-        </q-card-section>
-
         <div class="column items-center">
+          <div class="text-overline text-orange-9">Contáctanos</div>
           <q-card-actions>
             <q-btn
               flat
@@ -36,7 +33,7 @@
               label="Whatsapp"
               icon="phone"
               @click="redirectToWhatsApp()"
-            /><br />
+            />
             <q-btn
               flat
               style="width: 100%"
